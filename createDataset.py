@@ -131,7 +131,7 @@ def getLinkedInData():
     from config import LINKEDIN_RAW_FILE
     personName = input('Enter your full LinkedIn name: ')
     df = pd.read_csv(LINKEDIN_RAW_FILE)
-    dateTimeConverter = lambda x: datetime.strptime(x,'%Y-%m-%dT%H:%M:%S')
+    dateTimeConverter = lambda x: datetime.fromisoformat(x)
     responseDictionary = dict()
     peopleContacted = df['FROM'].unique().tolist()
     for person in peopleContacted:

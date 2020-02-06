@@ -5,3 +5,4 @@ GoogleTextForm/
 *.txt
 *.npy
 *.pdf
+.env*

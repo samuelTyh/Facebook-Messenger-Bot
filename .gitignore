@@ -1,6 +1,10 @@
 # User specific files
 DiscordChatLogs/
 GoogleTextForm/
+Dataset/
+.idea/
+__pycache__/
+.DS_Store*
 *.csv
 *.txt
 *.npy

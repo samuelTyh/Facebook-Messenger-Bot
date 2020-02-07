@@ -29,7 +29,7 @@ class FacebookContentParser(object):
                                 if not os.path.exists(writing_dir):
                                     os.makedirs(writing_dir)
 
-                                with open(filename, 'a+', encoding='utf8') as out_file:
+                                with open(filename, 'a+', encoding='utf-8') as out_file:
                                     out_file.write(content + '\n')
                     except KeyError:
                         pass
@@ -39,7 +39,7 @@ class FacebookContentParser(object):
         in_data = 'posts/your_posts_1.json'
         writing_dir = 'data/facebook_posts'
 
-        data = json.load(open(os.path.join(self.root, in_data), 'r'))
+        data = json.load(open(os.path.join(self.root, in_data), 'r', encoding='utf-8'))
 
         for post in data['status_updates']:
             try:
@@ -50,7 +50,7 @@ class FacebookContentParser(object):
                 if not os.path.exists(writing_dir):
                     os.makedirs(writing_dir)
 
-                with open(filename, 'a+') as out_file:
+                with open(filename, 'a+', encoding='utf-8') as out_file:
                     out_file.write(post_text + '\n')
             except KeyError:
                 print(post)
@@ -59,7 +59,7 @@ class FacebookContentParser(object):
         comment_path = 'comments/comments.json'
         writing_dir = 'data/facebook_comments'
 
-        data = json.load(open(os.path.join(self.root, comment_path), 'r'))
+        data = json.load(open(os.path.join(self.root, comment_path), 'r', encoding='utf-8'))
         for comment in data['comments']:
             try:
                 for d in comment['data']:
@@ -73,7 +73,7 @@ class FacebookContentParser(object):
                         if not os.path.exists(writing_dir):
                             os.makedirs(writing_dir)
 
-                        with open(filename, 'a+') as out_file:
+                        with open(filename, 'a+', encoding='utf-8') as out_file:
                             out_file.write(com + '\n')
             except KeyError:
                 print(comment)
